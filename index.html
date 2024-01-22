@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript colorChanger() Hands-On</title>
+
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-image: radial-gradient(#F8FAE5,#B19470 );
+            background-repeat: no-repeat;
+            background-size: 100%;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 5%;
+        }   
+
+        #boxcolor {
+            background-color: green;
+            border-radius: 10%;
+            width: 350px;
+            height: 200px;
+            transition: background-color 1s ease-in-out;
+            margin: 3.5% auto;
+            position: relative;
+        }
+
+        #boxcont {
+            text-align: center;
+        }
+
+        img {
+            width: auto;
+            height: 35%;
+            position: absolute;
+            top: 20%;
+            left: 35%;
+            margin: auto;
+        }
+
+        button {
+            margin-top: 2%;
+            border: none;
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            font-weight: bold;
+            font-size: large;
+            background-color: black;
+            color: white;
+            box-shadow: -2px -2px 10px rgba(0,0,0,.25) inset, 2px 2px 10px white inset;
+        }
+
+        button:active { 
+            box-shadow: 2px 2px 10px rgba(0,0,0,.25) inset, -2px -2px 10px white inset;
+            padding:7px 11px 7px 13px;
+        }
+
+        @media screen and (max-width: 600px) {
+            img {
+                left: 0;
+                top: 23%;
+                width: 100%;
+                height: auto;
+            }
+
+            #boxcolor {
+                width: 255px;
+                height: 150px;
+                margin-top: 10%;
+            }
+
+            button {
+                margin-top: 10%;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>JavaScript colorChanger() Hands-On</h1>
+
+    <div id="boxcont">
+        <div id="boxcolor"></div>
+        <img src="TV.png">
+        <button id="switchBtn">Click Me</button>
+    </div>
+
+    <script>
+        const boxcolor = document.getElementById("boxcolor");
+        let switchBtn = document.getElementById("switchBtn");
+
+        switchBtn.addEventListener("click", switchColor);
+
+        function switchColor() {
+            if (boxcolor.style.backgroundColor === "green") {
+                boxcolor.style.backgroundColor = "blue";
+            } else {
+                boxcolor.style.backgroundColor = "green";
+            }
+        }
+    </script>
+</body>
+</html>
